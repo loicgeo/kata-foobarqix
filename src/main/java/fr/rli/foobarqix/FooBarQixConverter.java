@@ -1,10 +1,15 @@
 package fr.rli.foobarqix;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class FooBarQixConverter {
 
     public static final String THREE_AS_STRING = "Foo";
     public static final String FIVE_AS_STRING = "Bar";
     public static final String SEVEN_AS_STRING = "Qix";
+
+    private static final Map<Integer, String> DIVISION_CONVERTER_RULES = Map.of(3, "Foo", 5, "Bar");
 
     public String convert(int inputNumber) {
         StringBuilder convertedInput = new StringBuilder();
@@ -16,13 +21,13 @@ public class FooBarQixConverter {
     }
 
     private void divisibleConversion(int inputNumber, StringBuilder convertedInput) {
-        if (inputNumber % 3 == 0) {
-            convertedInput.append(THREE_AS_STRING);
-        }
+        String conversionResult = DIVISION_CONVERTER_RULES.keySet()
+                .stream()
+                .filter(divisor -> inputNumber % divisor == 0)
+                .map(DIVISION_CONVERTER_RULES::get)
+                .collect(Collectors.joining());
 
-        if (inputNumber % 5 == 0) {
-            convertedInput.append(FIVE_AS_STRING);
-        }
+        convertedInput.append(conversionResult);
     }
 
     private void containConversion(int inputNumber, StringBuilder convertedInput) {
