@@ -1,6 +1,5 @@
 package fr.rli.foobarqix;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -26,12 +25,12 @@ public class FooBarQixConverterTest {
     }
 
     @Test
-    public void should_convert_input_number_to_foo_when_divisible_by_5() {
+    public void should_convert_input_number_to_bar_when_divisible_by_5() {
         assertEquals("Bar", fbqConverter.convert(5));
     }
 
     @Test
-    public void should_convert_input_number_to_foo_when_divisible_by_3_and_5() {
-        assertEquals("FooBar", fbqConverter.convert(5*3*3*5));
+    public void should_convert_input_number_to_foobar_when_divisible_by_3_and_5() {
+        assertEquals("FooBar", fbqConverter.convert(5 * 3 * 3));
     }
 }
