@@ -17,7 +17,13 @@ public class FooBarQixConverterTest {
 
     @Test
     public void should_return_input_number_as_string() {
-        assertEquals("1",fbqConverter.convert(1));
+        assertEquals("1", fbqConverter.convert(1));
     }
+
+    @Test
+    public void should_convert_input_number_to_foo_when_divible_by_3() {
+        assertEquals("Foo", fbqConverter.convert(3));
+    }
+
 
 }
