@@ -9,6 +9,13 @@ public class FooBarQixConverter {
     public String convert(int inputNumber) {
         StringBuilder convertedInput = new StringBuilder();
 
+        divisibleConversion(inputNumber, convertedInput);
+        containConversion(inputNumber, convertedInput);
+
+        return convertedInput.length() == 0 ? String.valueOf(inputNumber) : convertedInput.toString();
+    }
+
+    private void divisibleConversion(int inputNumber, StringBuilder convertedInput) {
         if (inputNumber % 3 == 0) {
             convertedInput.append(THREE_AS_STRING);
         }
@@ -16,19 +23,19 @@ public class FooBarQixConverter {
         if (inputNumber % 5 == 0) {
             convertedInput.append(FIVE_AS_STRING);
         }
+    }
 
+    private void containConversion(int inputNumber, StringBuilder convertedInput) {
         String inputToString = String.valueOf(inputNumber);
 
-        for (Character inputDigit :inputToString.toCharArray()){
+        for (Character inputDigit : inputToString.toCharArray()) {
             if (inputDigit == '3') {
                 convertedInput.append(THREE_AS_STRING);
-            }else if (inputDigit == '5'){
+            } else if (inputDigit == '5') {
                 convertedInput.append(FIVE_AS_STRING);
-            }else if (inputDigit == '7'){
+            } else if (inputDigit == '7') {
                 convertedInput.append(SEVEN_AS_STRING);
             }
         }
-
-        return convertedInput.length() == 0 ? String.valueOf(inputNumber) : convertedInput.toString();
     }
 }
