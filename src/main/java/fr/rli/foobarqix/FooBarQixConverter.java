@@ -6,15 +6,16 @@ public class FooBarQixConverter {
     public static final String FIVE_AS_STRING = "Bar";
 
     public String convert(int inputNumber) {
+        StringBuilder convertedNumber = new StringBuilder();
 
         if (inputNumber % 3 == 0){
-            return THREE_AS_STRING;
+            convertedNumber.append(THREE_AS_STRING);
         }
 
         if (inputNumber % 5 == 0){
-            return FIVE_AS_STRING;
+            convertedNumber.append(FIVE_AS_STRING);
         }
 
-        return String.valueOf(inputNumber);
+        return convertedNumber.length() == 0 ? String.valueOf(inputNumber) : convertedNumber.toString();
     }
 }

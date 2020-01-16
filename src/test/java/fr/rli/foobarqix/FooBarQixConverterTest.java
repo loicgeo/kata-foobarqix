@@ -21,12 +21,17 @@ public class FooBarQixConverterTest {
     }
 
     @Test
-    public void should_convert_input_number_to_foo_when_divible_by_3() {
+    public void should_convert_input_number_to_foo_when_divisible_by_3() {
         assertEquals("Foo", fbqConverter.convert(3));
     }
 
     @Test
-    public void should_convert_input_number_to_foo_when_divible_by_5() {
+    public void should_convert_input_number_to_foo_when_divisible_by_5() {
         assertEquals("Bar", fbqConverter.convert(5));
+    }
+
+    @Test
+    public void should_convert_input_number_to_foo_when_divisible_by_3_and_5() {
+        assertEquals("FooBar", fbqConverter.convert(5*3*3*5));
     }
 }
