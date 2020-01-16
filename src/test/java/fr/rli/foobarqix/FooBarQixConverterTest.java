@@ -19,10 +19,11 @@ public class FooBarQixConverterTest {
 
     private static Stream<Arguments> provide_number_for_foobarqix_conversion() {
         return Stream.of(
-                Arguments.of(1, "1"),
-                Arguments.of(3, "Foo"),
-                Arguments.of(5, "Bar"),
-                Arguments.of(15, "FooBar")
+                Arguments.of(1, "1"), // No specific rule for conversion
+                Arguments.of(9, "Foo"), // Divisible by 3
+                Arguments.of(10, "Bar"), // Divisible by 5
+                Arguments.of(60, "FooBar"), // Divisible by 3 and 5
+                Arguments.of(13, "Foo")
         );
     }
 
