@@ -1,9 +1,12 @@
 package fr.rli.foobarqix;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.stream.Stream;
 
 public class FooBarQixConverterTest {
 
@@ -14,23 +17,18 @@ public class FooBarQixConverterTest {
         fbqConverter = new FooBarQixConverter();
     }
 
-    @Test
-    public void should_return_input_number_as_string() {
-        assertEquals("1", fbqConverter.convert(1));
+    private static Stream<Arguments> provide_number_for_foobarqix_conversion() {
+        return Stream.of(
+                Arguments.of(1, "1"),
+                Arguments.of(3, "Foo"),
+                Arguments.of(5, "Bar"),
+                Arguments.of(15, "FooBar")
+        );
     }
 
-    @Test
-    public void should_convert_input_number_to_foo_when_divisible_by_3() {
-        assertEquals("Foo", fbqConverter.convert(3));
-    }
-
-    @Test
-    public void should_convert_input_number_to_bar_when_divisible_by_5() {
-        assertEquals("Bar", fbqConverter.convert(5));
-    }
-
-    @Test
-    public void should_convert_input_number_to_foobar_when_divisible_by_3_and_5() {
-        assertEquals("FooBar", fbqConverter.convert(5 * 3 * 3));
+    @ParameterizedTest
+    @MethodSource("provide_number_for_foobarqix_conversion")
+    public void should_apply_foobarqix_conversion_for_input_number(int input, String expected) {
+        Assertions.assertEquals(expected, fbqConverter.convert(input));
     }
 }
