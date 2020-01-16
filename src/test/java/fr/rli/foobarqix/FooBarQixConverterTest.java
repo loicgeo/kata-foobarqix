@@ -25,5 +25,8 @@ public class FooBarQixConverterTest {
         assertEquals("Foo", fbqConverter.convert(3));
     }
 
-
+    @Test
+    public void should_convert_input_number_to_foo_when_divible_by_5() {
+        assertEquals("Bar", fbqConverter.convert(5));
+    }
 }
