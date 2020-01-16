@@ -23,9 +23,13 @@ public class FooBarQixConverterTest {
                 Arguments.of(9, "Foo"), // Divisible by 3
                 Arguments.of(10, "Bar"), // Divisible by 5
                 Arguments.of(60, "FooBar"), // Divisible by 3 and 5
-                Arguments.of(13, "Foo"), // contain 3
-                Arguments.of(25, "BarBar"), // contain 5 and Divisible by 5
-                Arguments.of(17, "Qix") // contain 7
+                Arguments.of(13, "Foo"), // contains 3
+                Arguments.of(25, "BarBar"), // contains 5 and Divisible by 5
+                Arguments.of(17, "Qix"), // contains 7
+                Arguments.of(33, "FooFooFoo"), // Divisible by 3 and contains 3
+                Arguments.of(27, "FooQix"), // Divisible by 3 and contains 7
+                Arguments.of(35, "BarFooBar"), // Divisible by 5 and contains 3 and 5
+                Arguments.of(75, "FooBarQixBar") // Divisible by 5 and 3 and contains 7 and 5
         );
     }
 
