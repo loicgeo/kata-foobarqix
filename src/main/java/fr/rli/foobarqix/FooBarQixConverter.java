@@ -1,5 +1,7 @@
 package fr.rli.foobarqix;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -9,7 +11,16 @@ public class FooBarQixConverter {
     public static final String FIVE_AS_STRING = "Bar";
     public static final String SEVEN_AS_STRING = "Qix";
 
-    private static final Map<Integer, String> DIVISION_CONVERTER_RULES = Map.of(3, "Foo", 5, "Bar");
+    private static final Map<Integer, String> DIVISION_CONVERTER_RULES;
+
+    static {
+        Map<Integer, String> divisionConverterMap = new LinkedHashMap<>();
+        divisionConverterMap.put(3, "Foo");
+        divisionConverterMap.put(5, "Bar");
+
+        DIVISION_CONVERTER_RULES = Collections.unmodifiableMap(divisionConverterMap);
+    }
+
 
     public String convert(int inputNumber) {
         StringBuilder convertedInput = new StringBuilder();
