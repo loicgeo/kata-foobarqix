@@ -23,20 +23,18 @@ public class FooBarQixConverter {
     public String convert(int inputNumber) {
         StringBuilder convertedInput = new StringBuilder();
 
-        divisibleConversion(inputNumber, convertedInput);
+        convertedInput.append(divisibleConversion(inputNumber));
         convertedInput.append(containConversion(inputNumber));
 
         return convertedInput.length() == 0 ? String.valueOf(inputNumber) : convertedInput.toString();
     }
 
-    private void divisibleConversion(int inputNumber, StringBuilder convertedInput) {
-        String conversionResult = DIVISION_CONVERTER_RULES.keySet()
+    private String divisibleConversion(int inputNumber) {
+        return DIVISION_CONVERTER_RULES.keySet()
                 .stream()
                 .filter(divisor -> inputNumber % divisor == 0)
                 .map(DIVISION_CONVERTER_RULES::get)
                 .collect(Collectors.joining());
-
-        convertedInput.append(conversionResult);
     }
 
     private String containConversion(int inputNumber) {
