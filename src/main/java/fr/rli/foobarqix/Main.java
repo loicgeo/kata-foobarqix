@@ -5,10 +5,17 @@ import java.util.stream.IntStream;
 public class Main {
 
     public static void main(String[] args) {
-        FooBarQixConverter fbqConverter = new FooBarQixConverter();
+        FooBarQixConverter fooBarQixConverter = new FooBarQixConverter();
 
         IntStream.range(0, 100).forEach(
-                input -> System.out.println(fbqConverter.convert(input))
+                number -> {
+                    String conversionResult = fooBarQixConverter.convert(number);
+                    printConversion(conversionResult);
+                }
         );
+    }
+
+    private static void printConversion(String converted) {
+        System.out.println(converted);
     }
 }
