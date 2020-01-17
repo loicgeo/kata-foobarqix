@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         FooBarQixConverter fooBarQixConverter = new FooBarQixConverter();
 
-        IntStream.range(0, 100).forEach(
+        IntStream.range(1, 101).forEach(
                 number -> {
                     String conversionResult = fooBarQixConverter.convert(number);
                     printConversion(conversionResult);
